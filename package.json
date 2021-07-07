@@ -18,6 +18,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "push": "git push",
+    "pull": "git pull",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
