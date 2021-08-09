@@ -1,31 +1,10 @@
-import { useState } from 'react';
-import People from './Components/People';
-import AddPeople from './Components/AddPeople';
-import './App.css';
+import React from 'react';
 
-
-interface IStates {
-    peoples: {
-        name: string,
-        age: number,
-        note?: string
-    }[]
-}
-
-function App() {
-    const [peoples, setPeoples] = useState<IStates["peoples"]>([
-        {
-            name: "Numan",
-            age: 22,
-            note: "Hey, This is Numan"
-        }
-    ]);
-
+const App = () => {
     return (
-        <div className="App">
-            <People peoples={peoples} />
-            <AddPeople />
-        </div>
+        <>
+            Hello Numan
+        </>
     );
 }
 
