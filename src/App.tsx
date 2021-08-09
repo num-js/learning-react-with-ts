@@ -1,32 +1,30 @@
 import { useState } from 'react';
-import logo from './logo.svg';
+import People from './Components/People';
+import AddPeople from './Components/AddPeople';
 import './App.css';
 
+
+interface IStates {
+    peoples: {
+        name: string,
+        age: number,
+        note?: string
+    }[]
+}
+
 function App() {
-    const [number, setNumber] = useState<Number | string | boolean>(10);
-    const [anyData, setAnyData] = useState<any>(10);
-
-    const changeNumber = () => {
-        setNumber(10);
-    }
-
-    const changeName = () => {
-        setNumber('Numan');
-    }
-
-    const changeBoolean = () => {
-        setNumber(true);
-    }
-
-    const changeAnyData = () => {
-        setAnyData(false);
-        setAnyData('Numan');
-        setAnyData(100);
-    }
+    const [peoples, setPeoples] = useState<IStates["peoples"]>([
+        {
+            name: "Numan",
+            age: 22,
+            note: "Hey, This is Numan"
+        }
+    ]);
 
     return (
         <div className="App">
-            Hii
+            <People peoples={peoples} />
+            <AddPeople />
         </div>
     );
 }
