@@ -29,7 +29,7 @@ const App = () => {
     let lotsOfDev: Dev[]; //Array with Dev Type/Interface
 
 
-    const myDataFun = (name: string) => void {
+    const myDataFun = (name: string) => {
         console.log(name)
     }
 
