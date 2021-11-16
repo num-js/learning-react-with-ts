@@ -1,47 +1,26 @@
 import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
-const App = () => {
-
-    let name: string = "Numan";
-    let age: number = 22;
-    let isDev: boolean = true;
-    let langs: string[];
-
-    // Arrays
-    let role: [number, string];
-    role = [10, 'data']
-
-    let myData: number | string;
-
-    let someData: any; //Not Recommended
-    let someMoreData: unknown; //Recommended
-
-    // Objects
-    type Dev = {    //Interface
-        name: string,
-        age?: number
-    }
-    let devData: Dev = {    //Object with Dev Type/Interface
-        name: "Numan Ahmed",
-    }
-
-    // Array
-    let lotsOfDev: Dev[]; //Array with Dev Type/Interface
-
-
-    const myDataFun = (name: string) => {
-        console.log(name)
-    }
-
-    myDataFun('numan');
-
-    return (
-        <>
-            <h1>
-                {devData.name}
-            </h1>
-        </>
-    );
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.tsx</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
 }
 
 export default App;
