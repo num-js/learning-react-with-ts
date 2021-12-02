@@ -21,7 +21,8 @@ const App = () => {
                 <Row>
                     <Col>
                         <AddNote
-
+                            allNotes={allNotes}
+                            setAllNotes={setAllNotes}
                         />
                     </Col>
                 </Row>
