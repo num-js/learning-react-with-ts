@@ -1,21 +1,17 @@
 import { useState } from 'react'
-import { Note } from './models/note.model'
 import Header from './components/Header'
 import { Col, Container, Row } from 'react-bootstrap'
 import NotesList from './components/NotesList'
 import AddNote from './components/AddNote'
+import { NoteModel } from './models/notes.model'
 
 const App = () => {
 
-    const [notes, setNotes] = useState<Note[]>([
-        {
-            id: Date.now(),
-            title: "Meetings",
-            text: "Meeting with Design Team",
-            color: "#dfdfdf",
-            date: (new Date).toString()
-        }
-    ])
+    const [allNotes, setAllNotes] = useState<NoteModel[]>([{
+        id: Date.now(),
+        note: 'Learn TS',
+        date: (new Date).toString()
+    }])
 
     return (
         <>
@@ -25,8 +21,8 @@ const App = () => {
                 <Row>
                     <Col>
                         <AddNote
-                            notes={notes}
-                            setNotes={setNotes}
+                            allNotes={allNotes}
+                            setAllNotes={setAllNotes}
                         />
                     </Col>
                 </Row>
@@ -34,8 +30,8 @@ const App = () => {
                 <Row>
                     <Col>
                         <NotesList
-                            notes={notes}
-                            setNotes={setNotes}
+                            allNotes={allNotes}
+                            setAllNotes={setAllNotes}
                         />
                     </Col>
                 </Row>
