@@ -1,26 +1,30 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
+import { NoteModel } from '../models/notes.model';
 
+interface NotesProps {
+    note: NoteModel,
+    deleteNote: (id: number) => void
+}
 
-const Notes: React.FunctionComponent = () => {
+const Notes: React.FunctionComponent<NotesProps> = ({ note, deleteNote }) => {
+
     return (
         <>
             <div className="mb-3">
                 <Card style={{
-                    // backgroundColor: note.color
+                    backgroundColor: "#dfdfdf"
                 }}>
                     <Card.Body>
                         <Card.Title>
-                            {/* {note.title} */}AAA
+                            {note.note}
                         </Card.Title>
-                        <Card.Text>
-                            {/* {note.text} */}
-                        </Card.Text>
                         <Card.Subtitle className="text-muted">
-                            {/* {note.date} */}
+                            {note.date}
                         </Card.Subtitle>
 
                         <Button className="mt-3" variant="danger"
+                            onClick={() => deleteNote(note.id)}
                         >
                             Delete
                         </Button>

@@ -1,30 +1,34 @@
 import React from 'react';
+import { NoteModel } from '../models/notes.model';
 import Notes from './Notes';
 
+interface NotesListProps {
+    allNotes: NoteModel[],
+    setAllNotes: React.Dispatch<React.SetStateAction<NoteModel[]>>
+}
 
+const NotesList: React.FC<NotesListProps> = ({ allNotes, setAllNotes }) => {
 
+    const deleteNote = (id: number) => {
+        setAllNotes(allNotes.filter(note => note.id !== id));
+    }
 
-const NotesList: React.FC = () => {
-
-
-  // const renderNotes = (): JSX.Element[] => {
-  //   return notes.map(note => (
-  //     <Notes
-  //       key={note.id}
-  //       note={note}
-  //       handleDelete={handleDelete}
-  //     />
-  //   ))
-  // }
-
-  return (
-    <>
-      <h2 className="mt-3">Notes</h2>
-      <div>
-        NNN
-      </div>
-    </>
-  );
+    return (
+        <>
+            <h2 className="mt-3">All Notes</h2>
+            <div>
+                {
+                    allNotes && allNotes?.map(note => (
+                        <Notes
+                            key={note.id}
+                            note={note}
+                            deleteNote={deleteNote}
+                        />
+                    ))
+                }
+            </div>
+        </>
+    );
 };
 
 export default NotesList;
